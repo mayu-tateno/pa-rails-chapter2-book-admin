@@ -7,4 +7,6 @@ class Book < ApplicationRecord
   # 特定のパラメータを利用するscopeも定義可能。
   scope :written_about, -> (theme) { where("name like ?", "%#{theme}%") }
   # Book.costly.written_about("java") などのように重ねて呼び出すことも可能。可読性も高い。(普通のSQLを書く場合は一度に全部指定しないといけないので、こうはいかない！単体でもメソッドチェインでも呼び出せる！)
+
+  belongs_to :publisher
 end
