@@ -9,4 +9,6 @@ class Book < ApplicationRecord
   # Book.costly.written_about("java") などのように重ねて呼び出すことも可能。可読性も高い。(普通のSQLを書く場合は一度に全部指定しないといけないので、こうはいかない！単体でもメソッドチェインでも呼び出せる！)
 
   belongs_to :publisher
+  has_many :book_authors
+  has_many :authors, through: :book_authors
 end
