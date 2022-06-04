@@ -23,4 +23,19 @@ class Book < ApplicationRecord
       book.errors[:name] << "I don't like exercise."
     end
   end
+
+  # 名前に"Cat"が含まれていた場合、"lovely Cat"という文字に置き換える。
+  before_validation do
+    self.name = self.name.gsub(/Cat/) do |matched|
+      "lovely #{matched}"
+    end
+  end
+  # メソッドを使って以下のようにも書ける
+  # before_validation :add_lovely_to_cat
+
+  # def add_lovely_to_cat
+  #   self.name = self.name.gsub(/Cat/) do |matched|
+  #     "lovely #{matched}"
+  #   end
+  # end
 end
