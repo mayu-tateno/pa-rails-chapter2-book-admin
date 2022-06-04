@@ -38,4 +38,9 @@ class Book < ApplicationRecord
   #     "lovely #{matched}"
   #   end
   # end
+
+  # 削除後、削除された内容をログに書き込むコールバック
+  after_destroy do
+    Rails.logger.info "Book is deleted: #{self.attributes}"
+  end
 end
