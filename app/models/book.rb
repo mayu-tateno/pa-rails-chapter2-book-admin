@@ -1,4 +1,10 @@
 class Book < ApplicationRecord
+  enum sales_status: {
+    reservation: 0, #予約受付中
+    now_on_sale: 1, #発売中
+    end_of_print: 2, #販売終了
+  }
+
   # scopeを定義するメリット
   # 繰り返し利用するクエリの再利用性が上がる。
   # クエリに名前をつけることで可読性が上がる。
